@@ -9,5 +9,5 @@ jobs:
     runs-on: ubuntu-lastest
 
     steps:
-      - name: checkout
+      - name: checkout1
         uses: actions/checkout@v4.3.1
