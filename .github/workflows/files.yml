@@ -1,0 +1,19 @@
+name: Directory & File Manipulation
+on:
+  workflow_dispatch:
+
+jobs:
+  Dir-File-Manipulation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.3.1
+        
+      - name: Nieuwe Directory
+        run: mkdir -p new_directory
+      - name: Nieuwe file met tekst
+        run: echo "Dit is een korte tekst" > new_directory/voorbeeld.txt
+
+      - name: inhoud van de directory toont
+        run: ls -al new_directory
