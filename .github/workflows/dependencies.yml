@@ -23,7 +23,7 @@ jobs:
       - name: Build project
         run: npm run build --if-present
 
-      # Step 5: Bundle project into zip (all app files + node_modules)
+      # Step 5: Bundle project into zip (all app files + node_modules) 
       - name: Bundle project into zip
         run: |
           mkdir -p dist
