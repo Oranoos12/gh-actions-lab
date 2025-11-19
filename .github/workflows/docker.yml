@@ -18,11 +18,10 @@ jobs:
 
       - name: NPM Dependencies
         run: npm install
+      
 
       - name: NPM Test
-        run: |
-          npm install --save-dev jest-junit
-          npm test
+        run: npm test
 
       - name: Verification
         run: ls -lah reports/junit
