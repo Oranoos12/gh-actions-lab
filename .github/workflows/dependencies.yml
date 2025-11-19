@@ -32,9 +32,13 @@ jobs:
       - name: List files
         run: ls -alh
 
+         # Step 7: Run unit tests
+      - name: Run unit tests
+        run: npm test
+
       # اختیاری: ذخیره artifact
       - name: Upload ZIP as artifact
         uses: actions/upload-artifact@v5.0.0
         with:
-          name: app-zip
-          path: dist/app.zip
+          name: test-report
+          path: test-results/**/*.xml 
