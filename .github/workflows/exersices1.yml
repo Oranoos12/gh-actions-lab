@@ -1,0 +1,41 @@
+name: Node.js CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4.3.1
+
+      # Step 2: Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run unit tests
+      - name: Run unit tests
+        run: npm test
+
+      # Step 5: Generate coverage report
+      - name: Generate coverage report
+        run: npm run coverage || true  # اگر Jest استفاده می‌کنید: jest --coverage
+
+      # Step 6: Upload test results as artifact
+      - name: Upload test results
+        uses: actions/upload-artifact@v5.0.0
+        with:
+          name: test-results
+          path: coverage 
