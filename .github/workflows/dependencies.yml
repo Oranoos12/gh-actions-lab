@@ -17,7 +17,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: frontend
+        
 
       # Step 4: Build / Compile code if build script exists
       - name: Build project
