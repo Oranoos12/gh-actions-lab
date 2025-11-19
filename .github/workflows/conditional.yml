@@ -6,6 +6,7 @@ on:
       environment:
         description: "Kies een environment"
         required: true
+        default: development
         type: choice
         options:
           - development
