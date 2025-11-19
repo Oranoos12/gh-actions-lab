@@ -16,6 +16,7 @@ jobs:
            node-version: '20.x'
 
       - name: Install dependencies
+        run: cd frontend
         run: npm install
 
       # Step 4: Build / Compile code if build script exists
