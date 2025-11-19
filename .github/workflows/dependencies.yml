@@ -8,18 +8,17 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4.3.1
-
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: '20'
 
       - name: Install dependencies
         run: npm install
-        
-         # Step 4: Build / Compile code if build script exists
+
+      # Step 4: Build / Compile code if build script exists
       - name: Build project
         run: npm run build --if-present
 
@@ -31,4 +30,10 @@ jobs:
 
       - name: List files
         run: ls -alh
-      
+
+      # اختیاری: ذخیره artifact
+      - name: Upload ZIP as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-zip
+          path: dist/app.zip
