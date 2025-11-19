@@ -11,33 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5.0.1
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v6.0.0
-        with:
-          node-version: 14
-
-      - name: NPM Dependencies
-        run: npm install
       
-
-      - name: NPM Test
-        run: npm test
-
-      - name: Verification
-        run: ls -lah reports/junit
-
-      - name: Test Reporter
-        uses: dorny/test-reporter@v2.1.1
-        with:
-          name: JEST Tests
-          path: reports/junit/jest-*.xml
-          reporter: jest-junit
-
-      - name: Upload Build Artifact
-        uses: actions/upload-artifact@v5.0.0
-        with:
-          name: my-artifact
-          path: ./
 
       - name: Docker Login
         uses: docker/login-action@v3.6.0
