@@ -11,3 +11,5 @@ jobs:
     steps:
       - name: checkout1
         uses: actions/checkout@v4.3.1
+      - name: Show directory listing
+        run: ls -alhR
